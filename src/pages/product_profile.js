@@ -10,28 +10,46 @@ export class Product_profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          product: [],
+          product: '',
+          product_descri: '',
           isLoading: false,
           error: null,
         };
-      }
+    }
 
     componentDidMount() {  
+        let QUERY = this.props.match.params.id;
+
         if (this._isMounted) {
             this.setState({ isLoading: true });
         }
 
-        let QUERY = this.props.match.params.id;
-        fetch(API + QUERY)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Something went wrong ...');
-                }
-            })
-            .then(data => this.setState({ product: data, isLoading: false }))
-            .catch(error => this.setState({ error, isLoading: false }));
+        (async () => {
+            await fetch(API + QUERY)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong ...');
+                    }
+                })
+                .then(data => this.setState({ product: data }))
+                .catch(error => this.setState({ error }));
+    
+            await fetch(API + QUERY + '/description')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Something went wrong ...');
+                    }
+                })
+                .then(data => this.setState({ product_descri: data }))
+                .catch(error => this.setState({ error }));
+
+            this.setState({isLoading: false});
+        })();
+        
     }
 
     componentWillUnmount() {
@@ -39,7 +57,7 @@ export class Product_profile extends Component {
     }
 
     render() {
-        let { product, isLoading, error } = this.state;
+        let { product, product_descri, isLoading, error } = this.state;
         
         if (error) {
             return <p>{error.message}</p>;
@@ -52,7 +70,7 @@ export class Product_profile extends Component {
         if(!isLoading && !error){
             return (
                 <>
-                    {console.log(this.props)}
+                    {console.log(this.props, this.state)}
                     <MainSearchBar/>
                     <BreadCrumb breadCrumb={this.props.location.state.breadCrumb}/>
                     <main>
@@ -63,6 +81,9 @@ export class Product_profile extends Component {
                         <p>{product.price}</p>
                         <p>{product.currency_id}</p>
                         <img src={product.thumbnail} width="100" height="100"/>
+                        
+                        <p>{product_descri.plain_text}</p>
+                        <p>{product_descri.text}</p>
                     </main>
                 </>
             )
