@@ -1,0 +1,28 @@
+@import-normalize;
+
+$ml-primary: #FFE600;
+$ml-secondary: #3483fa;
+$ml-primary-text: #333333;
+$ml-secondary-text: #666666;
+$ml-optional-text: #999999;
+$ml-background: #eeeeee;
+
+body {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.ml_nav {
+    background-color: $ml-primary;
+    display: grid;
+    grid-template-columns: 2fr 9fr 1fr;
+    place-items: center;
+
+    form {
+        display: flex;
+    }
+}
