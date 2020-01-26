@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, useHistory } from "react-router-dom";
 
 import { Container, Row, Col, Hidden } from 'react-grid-system';
-import './ColorPalette.scss'
+import './MainSearchBar.scss'
 
 const qs = require('query-string');
 const assets = './assets/'

@@ -1,0 +1,27 @@
+@import-normalize;
+
+$ml-primary: #FFE600;
+$ml-secondary: #3483fa;
+$ml-primary-text: #333333;
+$ml-secondary-text: #666666;
+$ml-optional-text: #999999;
+$ml-background: #eeeeee;
+
+$xs: '768px';
+$md: '991px';
+$lg: '1199px';
+
+body {
+    margin: 0;
+}
+
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+

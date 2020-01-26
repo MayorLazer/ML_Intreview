@@ -9,6 +9,8 @@ import Not_found from './pages/not_found'
 
 import MainSearchBar from './components/MainSearchBar'
 
+import './ColorPalette.scss'
+
 // import * as serviceWorker from './serviceWorker';
 
 const routing = (

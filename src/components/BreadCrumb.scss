@@ -1,0 +1,21 @@
+@import "../ColorPalette.scss";
+
+.breadCrumb {
+    background-color: $ml-background;
+    color: $ml-optional-text;
+    padding: 14px 0px;
+
+    span {
+        margin-right: 5px;
+        &::after {
+            margin-left: 5px;
+            content: '>'
+        }
+        &:last-child {
+            font-weight: bold;
+            &::after {
+                content: ''
+            }
+        }
+    }
+}
