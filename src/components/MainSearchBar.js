@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, useHistory } from "react-router-dom";
+
+import { Container, Row, Col, Hidden } from 'react-grid-system';
 import './ColorPalette.scss'
 
 const qs = require('query-string');
@@ -18,22 +20,34 @@ export default function MainSearchBar(props) {
         if( props.isSearchPage ){ props.getData(textInput.current.value); }
     }
 
-    return (
+    return ( 
         <nav className="ml_nav">
-            <Link to={"/"}>
-                <img src="/assets/Logo_ML.png" srcSet="/assets/Logo_ML@2x.png 2x"/>
-            </Link>
-            <form onSubmit={handleSubmit}>
-                <input id="site-search" 
-                    type="search" 
-                    placeholder="Nunca dejes de buscar"
-                    ref={textInput}  
-                    // TODO: If (query) reflect it on input
-                />
-                <button type="submit" value="Search">
-                    <img src="/assets/ic_Search.png" srcSet="/assets/ic_Search@2x.png 2x"/>
-                </button>
-            </form>
+            <Container fluid>
+                <Row align="center">
+                    <Col sm={1} offSet={{xs:3}}>
+                        <Hidden xs> 
+                            <Link to={"/"}>
+                                <img src="/assets/Logo_ML.png" srcSet="/assets/Logo_ML@2x.png 2x"/>
+                            </Link>
+                        </Hidden>
+                    </Col>
+                    <Col sm={9}>
+                        <form onSubmit={handleSubmit}>
+                            <input id="site-search" 
+                                type="search" 
+                                placeholder="Nunca dejes de buscar"
+                                ref={textInput}  
+                                // TODO: If (query) reflect it on input
+                            />
+                            <button type="submit" value="Search">
+                                <img src="/assets/ic_Search.png" srcSet="/assets/ic_Search@2x.png 2x"/>
+                            </button>
+                        </form>
+                    </Col>
+                </Row>
+            </Container>
         </nav>
+
+        
     );
 }

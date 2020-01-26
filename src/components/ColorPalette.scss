@@ -7,6 +7,10 @@ $ml-secondary-text: #666666;
 $ml-optional-text: #999999;
 $ml-background: #eeeeee;
 
+$xs: '768px';
+$md: '991px';
+$lg: '1199px';
+
 body {
     margin: 0;
 }
@@ -18,11 +22,28 @@ main {
 
 .ml_nav {
     background-color: $ml-primary;
-    display: grid;
-    grid-template-columns: 2fr 9fr 1fr;
-    place-items: center;
+    padding: 0.5em 0em;
 
     form {
         display: flex;
+        width: 100%;
+    }
+    input {
+        width: 100%;
+        padding: 9px;
+        border-radius: 4px 0px 0px 4px;
+        border-color: white;
+        border-style: none;
+        color: $ml-optional-text;
+    }
+    button {
+        display: flex;
+        border: 0px;
+        border-radius: 0px 4px 4px 0px;
+        padding: 0px 10px;
+    }
+    a img {
+        height: 30px;
+        display: block;
     }
 }
