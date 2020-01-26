@@ -5,6 +5,9 @@ import MainSearchBar from '../components/MainSearchBar'
 import CardWide from '../components/CardWide';
 import BreadCrumb from '../components/BreadCrumb';
 
+import { Container, Row, Col, Hidden } from 'react-grid-system';
+import './product_search.scss'
+
 const API = 'https://api.mercadolibre.com/sites/MLA/search?q=';
 const qs = require('query-string');
 
@@ -69,26 +72,33 @@ export class Product_search extends Component {
                 <>
                     <MainSearchBar getData={this.getData} isSearchPage={true} />
                     <BreadCrumb breadCrumb={breadCrumb} />
+                        <Container>              
                     <main>
-                        <ul>
-                            {products.map( (item,key) =>
-                                <Link to={{
-                                    pathname: "/item/"+item.id,
-                                    state: {
-                                        breadCrumb: breadCrumb
-                                    }
-                                }} key={key}>
-                                    <CardWide 
-                                        thumbnail={item.thumbnail}
-                                        price={item.price}
-                                        freeShipping={item.shipping.free_shipping}
-                                        title={item.title}
-                                        cityName={item.address.city_name}
-                                    /> 
-                                </Link>
-                            )}
-                        </ul>
+                            <Row className="products_section">
+                                {products.map( (item,key) =>
+                                    <Col md={12}>
+                                        <Link to={{
+                                                pathname: "/item/"+item.id,
+                                                state: {
+                                                    breadCrumb: breadCrumb
+                                                }}
+                                            } 
+                                            key={key}
+                                        >
+                                            <CardWide 
+                                                thumbnail={item.thumbnail}
+                                                price={item.price}
+                                                freeShipping={item.shipping.free_shipping}
+                                                title={item.title}
+                                                cityName={item.address.city_name}
+                                                currency={item.currency_id}
+                                            /> 
+                                        </Link>
+                                    </Col>
+                                )}        
+                            </Row>  
                     </main>
+                        </Container>
                 </>
             )
         }

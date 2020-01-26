@@ -22,7 +22,7 @@ export default function MainSearchBar(props) {
 
     return ( 
         <nav className="ml_nav">
-            <Container fluid>
+            <Container>
                 <Row align="center">
                     <Col sm={1} offSet={{sm:1}}>
                         <Hidden xs> 
@@ -31,7 +31,7 @@ export default function MainSearchBar(props) {
                             </Link>
                         </Hidden>
                     </Col>
-                    <Col sm={9}>
+                    <Col sm={11}>
                         <form onSubmit={handleSubmit}>
                             <input id="site-search" 
                                 type="search" 

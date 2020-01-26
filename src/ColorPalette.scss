@@ -13,6 +13,7 @@ $lg: '1199px';
 
 body {
     margin: 0;
+    background-color: $ml-background;
 }
 
 body * {
@@ -20,9 +21,8 @@ body * {
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    background-color: $ml-background;
+    background-color: white;
+    padding: 32px;
 }
 
 

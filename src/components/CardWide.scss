@@ -1,0 +1,37 @@
+@import "../ColorPalette.scss";
+
+.cardWide {
+    margin-bottom: 32px!important;
+    border-bottom: 1px solid $ml-background;
+    padding-bottom: 32px;
+    .hasShipping {
+        &::after{
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: url(/assets/ic_shipping.png) no-repeat;
+            top: 2.5px;
+            right: -8px;        
+            position: absolute;
+            display: inline-block;
+        }
+    }
+    .price {
+        font-size: 24px;
+        color: $ml-primary-text;
+        margin: 0 0 32px 0;
+    }
+    .title {
+        font-size: 18px;
+        margin: 0;
+    }
+    .city {
+        color: $ml-optional-text;
+        font-size: 12px;
+    }
+    image{
+        border-radius: 4px;
+        // margin-right: 16px;
+    }
+
+}

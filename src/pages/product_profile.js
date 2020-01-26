@@ -75,10 +75,10 @@ export class Product_profile extends Component {
                 <>
                     <MainSearchBar/>
                     <BreadCrumb breadCrumb={this.props.location.state?.breadCrumb ? this.props.location.state.breadCrumb : [] }/>
-                    <main>
-                        <Container fluid>
-                            <Row align="start" className="">
-                                <Col xs={8} sm={3} push={{md:7}} className="buy_section">
+                    <Container>
+                        <main>
+                            <Row align="start" justify="start">
+                                <Col xs={8} md={3} push={{md:7}} className="buy_section">
                                     <p className="condition_qty">
                                         {product.condition} 
                                         {product.sold_quantity? <span> - {product.sold_quantity} </span> : ""}
@@ -89,8 +89,8 @@ export class Product_profile extends Component {
                                     </p>
                                     <button>Comprar</button>
                                 </Col>
-                                <Col md={7} pull={{md:3}} offSet={{md:1}} className="photo_section">
-                                    <img src={product.thumbnail} height="500" style={{width:"auto",  maxWidth:"500px"}}/> 
+                                <Col md={7} pull={{md:3}} className="photo_section">
+                                    <img src={product.thumbnail} height="500" style={{width:"100%",  maxWidth:"500px"}}/> 
                                 </Col>
                                 <Col md={12} className="descrip_section">
                                     <h2 className="descrip">Descripcion del producto</h2>
@@ -98,8 +98,8 @@ export class Product_profile extends Component {
                                     <p>{product_descri.text}</p>
                                 </Col>
                             </Row>
-                        </Container>
-                    </main>
+                        </main>
+                    </Container>
                 </>
             )
         }
