@@ -1,9 +1,12 @@
 @import "../ColorPalette.scss";
 
+main {
+    padding-top: 16px!important;
+}
 .cardWide {
-    margin-bottom: 32px!important;
     border-bottom: 1px solid $ml-background;
-    padding-bottom: 32px;
+    padding: 16px 0;
+    margin-bottom: 16;
     .hasShipping {
         &::after{
             content: '';
@@ -31,7 +34,6 @@
     }
     image{
         border-radius: 4px;
-        // margin-right: 16px;
     }
 
 }
