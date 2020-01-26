@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import MainSearchBar from '../components/MainSearchBar'
 import BreadCrumb from '../components/BreadCrumb';
 
+import { Container, Row, Col, Hidden } from 'react-grid-system';
+import './product_profile.scss'
+
 const API ='https://api.mercadolibre.com/items/'
 
 export class Product_profile extends Component {
@@ -70,20 +73,32 @@ export class Product_profile extends Component {
         if(!isLoading && !error){
             return (
                 <>
-                    {console.log(this.props, this.state)}
                     <MainSearchBar/>
                     <BreadCrumb breadCrumb={this.props.location.state?.breadCrumb ? this.props.location.state.breadCrumb : [] }/>
                     <main>
-                        <p>{product.title}</p>
-                        <p>{product.subtitle}</p>
-                        <p>{product.condition}</p>
-                        <p>{product.sold_quantity}</p>
-                        <p>{product.price}</p>
-                        <p>{product.currency_id}</p>
-                        <img src={product.thumbnail} width="100" height="100"/>
-                        
-                        <p>{product_descri.plain_text}</p>
-                        <p>{product_descri.text}</p>
+                        <Container fluid>
+                            <Row align="start" className="">
+                                <Col xs={8} sm={3} push={{md:7}} className="buy_section">
+                                    <p className="condition_qty">
+                                        {product.condition} 
+                                        {product.sold_quantity? <span> - {product.sold_quantity} </span> : ""}
+                                    </p>
+                                    <h1 className="title">{product.title}</h1>
+                                    <p className="price">
+                                        {product.currency_id} {product.price}
+                                    </p>
+                                    <button>Comprar</button>
+                                </Col>
+                                <Col md={7} pull={{md:3}} offSet={{md:1}} className="photo_section">
+                                    <img src={product.thumbnail} height="500" style={{width:"auto",  maxWidth:"500px"}}/> 
+                                </Col>
+                                <Col md={12} className="descrip_section">
+                                    <h2 className="descrip">Descripcion del producto</h2>
+                                    <p>{product_descri.plain_text}</p>
+                                    <p>{product_descri.text}</p>
+                                </Col>
+                            </Row>
+                        </Container>
                     </main>
                 </>
             )

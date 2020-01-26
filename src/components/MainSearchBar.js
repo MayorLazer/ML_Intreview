@@ -24,7 +24,7 @@ export default function MainSearchBar(props) {
         <nav className="ml_nav">
             <Container fluid>
                 <Row align="center">
-                    <Col sm={1} offSet={{xs:3}}>
+                    <Col sm={1} offSet={{sm:1}}>
                         <Hidden xs> 
                             <Link to={"/"}>
                                 <img src="/assets/Logo_ML.png" srcSet="/assets/Logo_ML@2x.png 2x"/>
