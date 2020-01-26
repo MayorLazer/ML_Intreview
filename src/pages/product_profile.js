@@ -72,7 +72,7 @@ export class Product_profile extends Component {
                 <>
                     {console.log(this.props, this.state)}
                     <MainSearchBar/>
-                    <BreadCrumb breadCrumb={this.props.location.state.breadCrumb}/>
+                    <BreadCrumb breadCrumb={this.props.location.state?.breadCrumb ? this.props.location.state.breadCrumb : [] }/>
                     <main>
                         <p>{product.title}</p>
                         <p>{product.subtitle}</p>
